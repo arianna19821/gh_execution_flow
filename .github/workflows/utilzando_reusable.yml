@@ -71,6 +71,8 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       myartifact_aroa-name: dist-files
+    secrets:
+      my_secreto: ${{secrets.unvalorsecreto}}
   report:
     needs: [lint,deploy]
     if: failure()
