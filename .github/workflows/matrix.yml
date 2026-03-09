@@ -1,4 +1,4 @@
-name: Matrix demo
+name: Matrix demo con inclusiones y exclusiones
 on: push
 jobs:
   build:
