@@ -1,8 +1,23 @@
 name: Reusable deloy
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      myartifact_aroa-name:
+        description: es el nombre del artefacto
+        required: false
+        default: dist
+        type: string
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name:  get code
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{inputs.myartifact_aroa-name}}
+      - name: listar archivos
+        run: ls
+          
       - name: outpunt information
         run: echo "deploy sistem"
