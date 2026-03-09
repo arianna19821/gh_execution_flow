@@ -7,6 +7,9 @@ on:
         required: false
         default: dist
         type: string
+    secrets:
+      my_secreto:
+          required: false
   
 jobs:
   deploy:
