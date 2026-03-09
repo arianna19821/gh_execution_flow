@@ -13,7 +13,6 @@ jobs:
         exclude:
           - node-version: 12
           - sistema-operativo: windows-latest
-          
     runs-on: ${{matrix.sistema-operativo}}
     steps:
       - name: get code
