@@ -69,7 +69,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml
-   
+    with:
+      myartifact_aroa-name: dist-files
   report:
     needs: [lint,deploy]
     if: failure()
