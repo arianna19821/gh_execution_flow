@@ -73,6 +73,12 @@ jobs:
       myartifact_aroa-name: dist-files
     secrets:
       my_secreto: ${{secrets.unvalorsecreto}}
+  print_deploy:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: print deploy output
+        run: echo "${{needs.deploy.outputs.result}}"
   report:
     needs: [lint,deploy]
     if: failure()
