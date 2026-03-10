@@ -10,9 +10,17 @@ on:
     secrets:
       my_secreto:
           required: false
-  
+    outputs:
+      result:
+        description: es el nombre del artefacto
+        value: ${{jobs.deploy.outputs.valor_retorno}}
+        
+        
 jobs:
   deploy:
+    outputs:
+      valor_retorno: ${{steps.set-result.outputs.step-result-success}}
+      
     runs-on: ubuntu-latest
     steps:
       - name:  get code
@@ -24,3 +32,7 @@ jobs:
           
       - name: outpunt information
         run: echo "deploy sistem"
+
+      - name: salida de informacion
+        id: set-result
+        run: echo "step-result-success">>$GITHUB_OUTPUT
